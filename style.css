@@ -1,0 +1,102 @@
+ :root {
+  --bg: #08050d; --panel: rgba(20, 10, 29, .78); --purple: #a72cff;
+  --purple-light: #d69bff; --text: #f4eafa; --muted: #bba8c8;
+  --line: rgba(185, 83, 255, .42);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  min-height: 100vh; margin: 0; overflow-x: hidden; color: var(--text);
+  background: radial-gradient(ellipse at 50% 0%, #241033 0%, var(--bg) 42%, #050307 100%);
+  font-family: "DM Sans", sans-serif; position: relative;
+}
+.ambient { position: fixed; width: 380px; height: 380px; border-radius: 50%; filter: blur(100px); opacity: .18; pointer-events: none; z-index: -1; }
+.ambient-one { background: #8b18ed; top: -190px; left: -160px; }
+.ambient-two { background: #5d0aa8; right: -190px; bottom: -170px; }
+#hearts-layer { position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+.floating-heart { position: absolute; bottom: -40px; color: #a92eff; opacity: .0; animation: float-up linear forwards; text-shadow: 0 0 14px #9e25ed; }
+@keyframes float-up { 10% { opacity: .5; } 90% { opacity: .25; } 100% { transform: translateY(-110vh) rotate(25deg); opacity: 0; } }
+.navbar, main, footer { position: relative; z-index: 1; }
+.brand-mark { color: var(--text); font-family: "Playfair Display", serif; font-style: italic; font-size: 1.25rem; }
+.brand-mark:hover { color: var(--purple-light); }
+.brand-mark span { color: var(--purple); font-size: 2rem; vertical-align: middle; margin-right: .4rem; }
+.nav-note { color: var(--muted); font-size: .9rem; font-style: italic; }
+.page-shell { max-width: 1000px; padding-bottom: 36px; }
+.hero { padding: 34px 0 12px; }
+.eyebrow { letter-spacing: .2em; color: #c58bea; font-size: .68rem; font-weight: 700; }
+.hero h1 { font: 500 clamp(2.5rem, 7vw, 5rem)/1.1 "Playfair Display", serif; margin: 12px 0; }
+.hero h1 em, .proposal-card h2 em { color: var(--purple-light); }
+.hero-heart { color: var(--purple); font-size: .75em; }
+.hero-subtitle { color: var(--muted); font-family: "Playfair Display", serif; font-style: italic; font-size: 1.1rem; }
+.section-spacing { margin-top: 48px; }
+.photo-frame { max-width: 820px; margin: 0 auto; border: 1px solid var(--line); border-radius: 22px; overflow: hidden; box-shadow: 0 15px 55px rgba(115, 24, 173, .15); background: #160d20; }
+.photo-frame .carousel-item { height: clamp(230px, 43vw, 430px); }
+.photo-frame img { width: 100%; height: 100%; object-fit: contain; object-position: center; display: block; background: #0b0710; }
+.photo-placeholder { height: 100%; display: grid; place-content: center; text-align: center; color: var(--muted); background: radial-gradient(circle at 50% 35%, #48235d, #140b1b 68%); }
+.photo-placeholder strong { font: italic 1.5rem "Playfair Display", serif; color: var(--purple-light); }
+.carousel-control-prev, .carousel-control-next { width: 9%; }
+.carousel-indicators { margin-bottom: 12px; }
+.carousel-indicators [data-bs-target] { width: 8px; height: 8px; border: 0; border-radius: 50%; background-color: #d9b3f3; }
+.photo-caption { text-align: center; color: var(--muted); font: italic .9rem "Playfair Display", serif; margin: 15px 0 0; }
+.music-card, .quote-card, .proposal-card { background: linear-gradient(135deg, rgba(26, 13, 36, .88), rgba(10, 6, 15, .92)); border: 1px solid var(--line); border-radius: 22px; box-shadow: 0 12px 45px rgba(91, 15, 139, .10); }
+.music-card { padding: 25px 30px 20px; }
+.section-heading { display: flex; align-items: center; gap: 15px; margin-bottom: 22px; }
+.section-icon { color: var(--purple-light); font-size: 2.2rem; line-height: 1; }
+.section-heading h2 { font: italic 1.5rem "Playfair Display", serif; margin: 0; }
+.section-heading h2 span { color: var(--purple); }
+.section-heading p { color: var(--muted); font-size: .82rem; margin: 4px 0 0; }
+.player-content { display: grid; grid-template-columns: 76px minmax(0, 1fr) auto; gap: 20px; align-items: center; }
+.album-art { width: 76px; height: 76px; display: grid; place-items: center; border-radius: 13px; background: linear-gradient(145deg, #7b20b7, #1b0d29 70%); border: 1px solid #9b40ce; font-size: 2.3rem; color: #e4baff; }
+.track-title { font-weight: 700; }
+.track-artist, .music-hint { color: var(--muted); font-size: .82rem; }
+.progress-range { width: 100%; accent-color: var(--purple); margin-top: 9px; cursor: pointer; }
+.time-row { display: flex; justify-content: space-between; color: var(--muted); font-size: .72rem; }
+.player-controls { display: flex; align-items: center; gap: 13px; }
+.player-btn, .play-btn { color: var(--purple-light); border: 0; background: transparent; font-size: 1rem; }
+.play-btn { width: 52px; height: 52px; border-radius: 50%; color: white; background: linear-gradient(145deg, #bd55ff, #7418b5); box-shadow: 0 0 22px rgba(169, 44, 255, .3); }
+.playlist { display: flex; flex-wrap: wrap; gap: 8px; margin: 17px 0 0 96px; }
+.track-chip { border: 1px solid rgba(189, 126, 224, .3); color: var(--muted); background: rgba(255,255,255,.03); border-radius: 30px; padding: 6px 12px; font-size: .75rem; }
+.track-chip.active { border-color: var(--purple); color: white; background: rgba(154, 44, 222, .2); }
+.music-hint { margin: 14px 0 0 96px; font-size: .72rem; }
+.music-hint code { color: #d9a5ff; }
+.words-section { padding: 0 4%; }
+.quote-card { max-width: 760px; margin: 0 auto; padding: 26px 24px; text-align: center; position: relative; border-radius: 28px; }
+.quote-mark { color: var(--purple); font: 3rem "Playfair Display", serif; line-height: .5; }
+.quote-card p { margin: 8px 0; font: italic clamp(1.05rem, 2.5vw, 1.4rem)/1.6 "Playfair Display", serif; }
+.quote-heart { color: var(--purple-light); font-size: 1.3rem; }
+.quote-footnote { text-align: center; color: var(--muted); font-size: .78rem; font-style: italic; margin-top: 14px; }
+.proposal-card { margin: 60px 0 0; padding: 35px 22px 30px; border-color: rgba(183, 65, 255, .75); box-shadow: 0 0 35px rgba(130, 22, 196, .13), inset 0 0 35px rgba(130, 22, 196, .06); position: relative; }
+.proposal-top-heart { color: var(--purple); font-size: 2rem; line-height: 1; margin-bottom: 8px; }
+.proposal-card h2 { font: italic 500 clamp(1.5rem, 4vw, 2.45rem)/1.35 "Playfair Display", serif; margin: 12px auto 18px; }
+.proposal-underline { height: 2px; width: 180px; margin: 0 auto 26px; background: linear-gradient(90deg, transparent, var(--purple), transparent); }
+.answer-buttons { display: flex; justify-content: center; align-items: center; gap: 25px; min-height: 62px; }
+.btn-yes, .btn-no { min-width: 150px; padding: 12px 25px; border-radius: 40px; font-size: 1rem; transition: .2s ease; }
+.btn-yes { color: white; border: 1px solid #b74dff; background: linear-gradient(110deg, #a52ce8, #6716a3); box-shadow: 0 5px 25px rgba(161, 41, 232, .25); }
+.btn-yes:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(161, 41, 232, .4); color: white; }
+.btn-yes span { margin-right: 6px; }
+.btn-no { color: var(--text); border: 1px dashed #d4a4ee; background: transparent; }
+.tiny-note { color: var(--muted); font-size: .72rem; margin: 18px 0 0; }
+.footer-note { text-align: center; color: #8f7b9c; font-size: .78rem; padding: 35px 0 10px; }
+.footer-note span { color: var(--purple); }
+.love-modal { position: relative; text-align: center; padding: 38px 32px 34px; color: var(--text); background: radial-gradient(circle at top, #321344, #100817 65%); border: 1px solid #b43dff; border-radius: 24px; box-shadow: 0 0 55px rgba(167, 44, 255, .3); }
+.modal-close { position: absolute; top: 10px; right: 16px; color: var(--purple-light); border: 0; background: none; font-size: 2rem; }
+.modal-heart { color: var(--purple-light); font-size: 3rem; }
+.love-modal h2 { font: italic 1.8rem "Playfair Display", serif; margin: 8px 0 16px; }
+.love-modal p { color: #e4d5ed; line-height: 1.7; }
+.modal-signature { font: italic 2.3rem "Playfair Display", serif; color: var(--purple-light); margin-top: 15px; }
+.modal-signature span { color: var(--purple); }
+@media (max-width: 600px) {
+  .navbar { padding-top: 18px !important; padding-bottom: 18px !important; }
+  .nav-note { font-size: .72rem; }
+  .hero { padding-top: 25px; }
+  .section-spacing { margin-top: 34px; }
+  .music-card { padding: 20px 16px; }
+  .player-content { grid-template-columns: 58px minmax(0,1fr); gap: 12px; }
+  .album-art { width: 58px; height: 58px; font-size: 1.8rem; }
+  .player-controls { grid-column: 1 / -1; justify-content: center; margin-top: 4px; }
+  .playlist, .music-hint { margin-left: 0; }
+  .proposal-card { margin-top: 42px; padding: 28px 16px; }
+  .answer-buttons { gap: 12px; }
+  .btn-yes, .btn-no { min-width: 125px; padding: 11px 17px; }
+  .love-modal { padding: 35px 22px 28px; }
+}

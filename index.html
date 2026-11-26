@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#09040f">
+  <title>Uma noite especial ♡</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+  <div id="hearts-layer" aria-hidden="true"></div>
+
+  <nav class="navbar container py-4">
+    <a class="navbar-brand brand-mark" href="#top"><span>♡</span> Você & Eu</a>
+    <span class="nav-note">Uma noite especial... ♡</span>
+  </nav>
+
+  <main id="top" class="container page-shell">
+    <header class="hero text-center">
+      <p class="eyebrow">UM CONVITE FEITO COM AMOR</p>
+      <h1>Minha pessoa <em>favorita</em> <span class="hero-heart">♡</span></h1>
+      <p class="hero-subtitle">Preparei essa surpresa com todo meu amor...</p>
+    </header>
+
+    <section class="photo-section section-spacing" aria-label="Nossas fotos">
+      <div id="photoCarousel" class="carousel slide photo-frame" data-bs-ride="carousel" data-bs-interval="3000" data-bs-pause="hover">
+        <div class="carousel-inner" id="photo-slides">
+          <!-- As imagens são adicionadas pelo script.js. Veja o array photos. -->
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#photoCarousel" data-bs-slide="prev" aria-label="Foto anterior">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#photoCarousel" data-bs-slide="next" aria-label="Próxima foto">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+        <div class="carousel-indicators" id="photo-indicators"></div>
+      </div>
+      <p class="photo-caption">Pequenos momentos, lembranças gigantes. ♡</p>
+    </section>
+
+    <section class="music-card section-spacing">
+      <div class="section-heading">
+        <span class="section-icon">♫</span>
+        <div>
+          <h2>Nossa trilha sonora <span>♡</span></h2>
+          <p>As músicas que marcam nossos momentos.</p>
+        </div>
+      </div>
+      <div class="player-content">
+        <div class="album-art" id="album-art"><span>♫</span></div>
+        <div class="track-info">
+          <div class="track-title" id="track-title">Escolha uma música</div>
+          <div class="track-artist" id="track-artist">Nossa playlist</div>
+          <audio id="audio-player" preload="metadata"></audio>
+          <input id="music-progress" class="progress-range" type="range" min="0" max="100" value="0" aria-label="Progresso da música">
+          <div class="time-row"><span id="current-time">0:00</span><span id="duration">0:00</span></div>
+        </div>
+        <div class="player-controls">
+          <button class="player-btn" id="prev-track" aria-label="Música anterior">|◀</button>
+          <button class="play-btn" id="play-pause" aria-label="Reproduzir">▶</button>
+          <button class="player-btn" id="next-track" aria-label="Próxima música">▶|</button>
+        </div>
+      </div>
+      <div class="playlist" id="playlist" aria-label="Lista de músicas"></div>
+    </section>
+
+    <section class="words-section section-spacing">
+      <div class="section-heading">
+        <span class="section-icon">♡</span>
+        <div><h2>Algumas palavras...</h2><p>Porque você merece saber o quanto é especial.</p></div>
+      </div>
+      <div class="quote-card">
+        <span class="quote-mark"></span>
+        <p>Com você, tudo faz mais sentido.<br>Obrigado por existir, por fazer parte da minha vida<br class="d-none d-md-block"> e por tornar tudo mais leve e feliz.</p>
+        <span class="quote-heart">♡</span>
+      </div>
+      <p class="quote-footnote">E isso é só uma pequena parte de tudo que eu sinto por você.</p>
+    </section>
+
+    <section class="proposal-card section-spacing text-center" id="proposal">
+      <div class="proposal-top-heart">♡</div>
+      <p class="eyebrow">TENHO UM CONVITE PARA VOCÊ</p>
+      <h2> Aceita sair comigo dia <em>07/12/2026</em>,<br class="d-none d-md-block"> para a uma noite incrível?</h2>
+      <div class="proposal-underline"></div>
+      <div class="answer-buttons">
+        <button id="yes-button" class="btn-yes"><span>♡</span> Sim</button>
+        <button id="no-button" class="btn-no">Não</button>
+      </div>
+      <p class="tiny-note">Escolha com carinho... mas acho que já sei a resposta. ♡</p>
+    </section>
+
+    <footer class="footer-note">Feito especialmente para você, com amor. <span>♡</span></footer>
+  </main>
+
+  <div class="modal fade" id="loveModal" tabindex="-1" aria-labelledby="loveModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content love-modal">
+        <button type="button" class="modal-close" data-bs-dismiss="modal" aria-label="Fechar">×</button>
+        <div class="modal-heart">♡</div>
+        <h2 id="loveModalLabel">Você disse sim!</h2>
+        <p>Obrigado por aceitar, meu amor. Tenho certeza de que você não irá se arrepender. Estou aguardando ansiosamente por essa data.</p>
+        <div class="modal-signature">Te amo muito <span>♡</span></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
